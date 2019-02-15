@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Project 2: Implementing a Simple Router
 
 Note: you may work in teams of two for this and subsequent projects.
