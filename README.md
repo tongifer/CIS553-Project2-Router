@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Project 2: Implementing a Simple Router
 
 Note: you may work in teams of two for this and subsequent projects.
@@ -115,3 +116,6 @@ Submit your basic.p4 and questions.txt to Canvas.  Make sure to **Indicate both 
 As always, start early and feel free to ask questions on Piazza and in office hours.
 
 
+=======
+# CIS553-Project2-Router
+>>>>>>> refs/remotes/origin/master
