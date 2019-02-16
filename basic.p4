@@ -23,44 +23,32 @@ header ethernet_t {
 
 header ipv4_t {
     // TODO
-    /*
     bit<4>  version;
     bit<4>  ihl;
-    bit<8> diffserv;
+    bit<8>  diffserv;
     bit<16> totalLen;
     bit<16> identification;
-    bit<3> flags;
+    bit<3>  flags;
     bit<13> fragOffset;
-    bit<8> ttl;
-    bit<8> protocol;
+    bit<8>  ttl;
+    bit<8>  protocol;
     bit<16> hdrChecksum;
-    bit<16> hdrChecksum;
-    */
     bit<32> srcAddr;
     bit<32> dstAddr;
 }
 
 header arp_t {
     // TODO
-    /*
-    macAddr_t mac_sa;
-    macAddr_t mac_da;
-    ipv4Addr_t ipv4_sa;
-    ipv4Addr_t ipv4_da;
-    portId_t egress_port;
     bit<16> htype;
     bit<16> ptype;
     bit<8>  hlen;
     bit<8>  plen;
-    */
     bit<16> oper;
-    bit<32> target_pa;
 }
 
 struct cis553_metadata_t {
     // TODO
     bit<1> forMe;
-    bit<1> checksum_error;
 }
 
 struct headers_t {
@@ -73,7 +61,7 @@ struct headers_t {
 ***********************  P A R S E   P A C K E T *************************
 *************************************************************************/
 
-parser cis553Parser(packet_in tiHandleEthernet,
+parser cis553Parser(packet_in packet,
                     out headers_t parsed_header,
                     inout cis553_metadata_t metadata,
                     inout standard_metadata_t standard_metadata) {
@@ -86,8 +74,8 @@ parser cis553Parser(packet_in tiHandleEthernet,
         // TODO
         packet.extract(parsed_header.ethernet);
         transition select(parsed_header.ethernet.etherType) {
-            // something : parse_ipv4;
-            // something : parse_arp;
+            0x0800 : parse_ipv4;
+            0x0806 : parse_arp;
         }
     }
 
@@ -149,8 +137,8 @@ control cis553Ingress(inout headers_t hdr,
 
     action aiForward(macAddr_t mac_sa, macAddr_t mac_da, portId_t egress_port) {
         // TODO
-        hdr.ipv4.srcAddr = mac_sa;
-        hdr.ipv4.dstAddr = mac_da;
+        hdr.ethernet.srcAddr = mac_sa;
+        hdr.ethernet.dstAddr = mac_da;
 
         standard_metadata.egress_spec = egress_port; // could be egress_port
     }
@@ -158,30 +146,35 @@ control cis553Ingress(inout headers_t hdr,
     table tiIpv4Lpm {
         // TODO
         key = {
-            hdr.ipv4.dstAddr : exact;
+            hdr.ipv4.dstAddr : lpm;
         }
         actions = {
             aiForward;
         }
 
-        default_action = aiForward();
+        //default_action = aiForward();
     }
 
     action aiArpResponse(macAddr_t mac_sa) {
         // TODO
+        //hdr.arp.target_pa = mac_sa;
+        hdr.ethernet.srcAddr = mac_sa;
+        hdr.arp.oper = 2;
     }
 
     table tiArpResponse {
         // TODO
         key = {
-            hdr.arp.oper : exact;
-            hdr.arp.targetPA : exact;
+            hdr.arp.oper : ternary;
+            //hdr.arp.target_pa : exact;
         }
         actions = {
             aiArpResponse;
         }
 
-        default_action = aiArpResponse();
+
+
+        //default_action = aiArpResponse();
     }
 
     apply {
@@ -222,11 +215,20 @@ control cis553ComputeChecksum(inout headers_t hdr,
             hdr.ipv4.isValid(),
             { 
                 // TODO: fields to checksum
+                hdr.ipv4.version,
+                hdr.ipv4.ihl,
+                hdr.ipv4.diffserv,
+                hdr.ipv4.totalLen,
+                hdr.ipv4.identification,
+                hdr.ipv4.flags,
+                hdr.ipv4.fragOffset,
+                hdr.ipv4.ttl,
+                hdr.ipv4.protocol,
                 hdr.ipv4.srcAddr,
                 hdr.ipv4.dstAddr
             },
             // TODO: checksum field
-            meta.checksum_error
+            hdr.ipv4.hdrChecksum
             ,
             HashAlgorithm.csum16);
     }
