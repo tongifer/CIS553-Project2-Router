@@ -9,12 +9,14 @@
 
 typedef bit<48> macAddr_t;
 typedef bit<9>  portId_t;
+typedef bit<32>  ipv4Addr_t;
 
 /*************************************************************************
 *********************** H E A D E R S  ***********************************
 *************************************************************************/
 
 header ethernet_t {
+    // TODO
     macAddr_t dstAddr;
     macAddr_t srcAddr;
     bit<16>   etherType;
@@ -22,15 +24,43 @@ header ethernet_t {
 
 header ipv4_t {
     // TODO
+    bit<4>  version;
+    bit<4>  ihl;
+    /*
+    bit<8> diffserv;
+    bit<16> totalLen;
+    bit<16> identification;
+    bit<3> flags;
+    bit<13> fragOffset;
+    bit<8> ttl;
+    bit<8> protocol;
+    bit<16> hdrChecksum;
+    bit<16> hdrChecksum;
+    */
+    bit<32> srcAddr;
+    bit<32> dstAddr;
 }
 
 header arp_t {
     // TODO
+    /*
+    macAddr_t mac_sa;
+    macAddr_t mac_da;
+    ipv4Addr_t ipv4_sa;
+    ipv4Addr_t ipv4_da;
+    portId_t egress_port;
+    */
+    bit<16> htype;
+    bit<16> ptype;
+    bit<8>  hlen;
+    bit<8>  plen;
+    bit<16> oper;
 }
 
 struct cis553_metadata_t {
     // TODO
     bit<1> forMe;
+    bit<1> checksum_error;
 }
 
 struct headers_t {
@@ -58,6 +88,12 @@ parser cis553Parser(packet_in packet,
         transition select(parsed_header.ethernet.etherType) {
             default: accept;
         }
+    }
+
+    state parse_ipv4 {
+        // TODO
+        packet.extract(parsed_header.ipv4);
+        transition accept;
     }
 }
 
@@ -158,8 +194,11 @@ control cis553ComputeChecksum(inout headers_t hdr,
             hdr.ipv4.isValid(),
             { 
                 // TODO: fields to checksum
+                hdr.ipv4.srcAddr,
+                hdr.ipv4.dstAddr
             },
             // TODO: checksum field
+            meta.checksum_error
             ,
             HashAlgorithm.csum16);
     }
