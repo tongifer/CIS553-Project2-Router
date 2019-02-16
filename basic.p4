@@ -9,7 +9,6 @@
 
 typedef bit<48> macAddr_t;
 typedef bit<9>  portId_t;
-typedef bit<32>  ipv4Addr_t;
 
 /*************************************************************************
 *********************** H E A D E R S  ***********************************
@@ -24,9 +23,9 @@ header ethernet_t {
 
 header ipv4_t {
     // TODO
+    /*
     bit<4>  version;
     bit<4>  ihl;
-    /*
     bit<8> diffserv;
     bit<16> totalLen;
     bit<16> identification;
@@ -49,12 +48,13 @@ header arp_t {
     ipv4Addr_t ipv4_sa;
     ipv4Addr_t ipv4_da;
     portId_t egress_port;
-    */
     bit<16> htype;
     bit<16> ptype;
     bit<8>  hlen;
     bit<8>  plen;
+    */
     bit<16> oper;
+    bit<32> target_pa;
 }
 
 struct cis553_metadata_t {
@@ -73,7 +73,7 @@ struct headers_t {
 ***********************  P A R S E   P A C K E T *************************
 *************************************************************************/
 
-parser cis553Parser(packet_in packet,
+parser cis553Parser(packet_in tiHandleEthernet,
                     out headers_t parsed_header,
                     inout cis553_metadata_t metadata,
                     inout standard_metadata_t standard_metadata) {
@@ -86,13 +86,20 @@ parser cis553Parser(packet_in packet,
         // TODO
         packet.extract(parsed_header.ethernet);
         transition select(parsed_header.ethernet.etherType) {
-            default: accept;
+            // something : parse_ipv4;
+            // something : parse_arp;
         }
     }
 
     state parse_ipv4 {
         // TODO
         packet.extract(parsed_header.ipv4);
+        transition accept;
+    }
+
+    state parse_arp {
+        // TODO
+        packet.extract(parsed_header.arp);
         transition accept;
     }
 }
@@ -142,10 +149,22 @@ control cis553Ingress(inout headers_t hdr,
 
     action aiForward(macAddr_t mac_sa, macAddr_t mac_da, portId_t egress_port) {
         // TODO
+        hdr.ipv4.srcAddr = mac_sa;
+        hdr.ipv4.dstAddr = mac_da;
+
+        standard_metadata.egress_spec = egress_port; // could be egress_port
     }
 
     table tiIpv4Lpm {
         // TODO
+        key = {
+            hdr.ipv4.dstAddr : exact;
+        }
+        actions = {
+            aiForward;
+        }
+
+        default_action = aiForward();
     }
 
     action aiArpResponse(macAddr_t mac_sa) {
@@ -154,6 +173,15 @@ control cis553Ingress(inout headers_t hdr,
 
     table tiArpResponse {
         // TODO
+        key = {
+            hdr.arp.oper : exact;
+            hdr.arp.targetPA : exact;
+        }
+        actions = {
+            aiArpResponse;
+        }
+
+        default_action = aiArpResponse();
     }
 
     apply {
