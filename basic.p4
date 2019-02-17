@@ -47,7 +47,7 @@ header arp_t {
 }
 
 struct cis553_metadata_t {
-    // TODO
+    // TODO!
     bit<1> forMe;
 }
 
@@ -136,45 +136,45 @@ control cis553Ingress(inout headers_t hdr,
     }
 
     action aiForward(macAddr_t mac_sa, macAddr_t mac_da, portId_t egress_port) {
-        // TODO
+        // TODO!
         hdr.ethernet.srcAddr = mac_sa;
         hdr.ethernet.dstAddr = mac_da;
-
-        standard_metadata.egress_spec = egress_port; // could be egress_port
+        hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+        standard_metadata.egress_spec = egress_port;
     }
 
     table tiIpv4Lpm {
-        // TODO
+        // TODO!
         key = {
             hdr.ipv4.dstAddr : lpm;
         }
         actions = {
             aiForward;
+            aDrop;
         }
 
-        //default_action = aiForward();
+        default_action = aDrop();
     }
 
     action aiArpResponse(macAddr_t mac_sa) {
-        // TODO
-        //hdr.arp.target_pa = mac_sa;
-        hdr.ethernet.srcAddr = mac_sa;
+        // TODO!
+        hdr.ethernet.srcAddr = mac_sa; // ?
         hdr.arp.oper = 2;
+
+        standard_metadata.egress_spec = standard_metadata.ingress_port; // ?
     }
 
     table tiArpResponse {
-        // TODO
+        // TODO!
         key = {
             hdr.arp.oper : ternary;
-            //hdr.arp.target_pa : exact;
         }
         actions = {
             aiArpResponse;
+            aDrop;
         }
 
-
-
-        //default_action = aiArpResponse();
+        default_action = aDrop();
     }
 
     apply {
