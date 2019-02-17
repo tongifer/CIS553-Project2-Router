@@ -44,11 +44,19 @@ header arp_t {
     bit<8>  hlen;
     bit<8>  plen;
     bit<16> oper;
+    macAddr_t senderHA;
+    bit<32> senderPA;
+    macAddr_t targetHA;
+    bit<32> targetPA;
 }
 
 struct cis553_metadata_t {
     // TODO!
     bit<1> forMe;
+    macAddr_t dstAddr; 
+    macAddr_t srcAddr;
+    portId_t egress_port;
+    bit<32> targetPA;
 }
 
 struct headers_t {
@@ -76,18 +84,21 @@ parser cis553Parser(packet_in packet,
         transition select(parsed_header.ethernet.etherType) {
             0x0800 : parse_ipv4;
             0x0806 : parse_arp;
+            default : accept;
         }
     }
 
     state parse_ipv4 {
         // TODO
         packet.extract(parsed_header.ipv4);
+        metadata.targetPA = parsed_header.ipv4.dstAddr;
         transition accept;
     }
 
     state parse_arp {
         // TODO
         packet.extract(parsed_header.arp);
+        metadata.targetPA = parsed_header.arp.targetPA;
         transition accept;
     }
 }
@@ -137,6 +148,11 @@ control cis553Ingress(inout headers_t hdr,
 
     action aiForward(macAddr_t mac_sa, macAddr_t mac_da, portId_t egress_port) {
         // TODO!
+        //metadata.dstAddr = mac_da;
+        //metadata.srcAddr = mac_sa;
+        //metadata.egress_port = egress_port;
+
+
         hdr.ethernet.srcAddr = mac_sa;
         hdr.ethernet.dstAddr = mac_da;
         hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
@@ -150,31 +166,35 @@ control cis553Ingress(inout headers_t hdr,
         }
         actions = {
             aiForward;
-            aDrop;
         }
 
-        default_action = aDrop();
     }
 
     action aiArpResponse(macAddr_t mac_sa) {
         // TODO!
-        hdr.ethernet.srcAddr = mac_sa; // ?
+        hdr.ethernet.dstAddr = hdr.arp.senderHA;
+        hdr.ethernet.srcAddr = mac_sa;
+
         hdr.arp.oper = 2;
 
-        standard_metadata.egress_spec = standard_metadata.ingress_port; // ?
+        hdr.arp.targetHA = hdr.arp.senderHA;
+        hdr.arp.targetPA = hdr.arp.senderPA;
+        hdr.arp.senderHA = mac_sa;
+        hdr.arp.senderPA = metadata.targetPA;
+
+        standard_metadata.egress_spec = standard_metadata.ingress_port;
     }
 
     table tiArpResponse {
         // TODO!
         key = {
-            hdr.arp.oper : ternary;
+            hdr.arp.oper : exact;
+            hdr.arp.targetPA : exact;
         }
         actions = {
             aiArpResponse;
-            aDrop;
         }
 
-        default_action = aDrop();
     }
 
     apply {

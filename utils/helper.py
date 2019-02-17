@@ -106,6 +106,7 @@ class P4InfoHelper(object):
             lpm.prefix_len = value[1]
         elif match_type == p4info_pb2.MatchField.TERNARY:
             lpm = p4runtime_match.ternary
+            print value
             lpm.value = encode(value[0], bitwidth)
             lpm.mask = encode(value[1], bitwidth)
         elif match_type == p4info_pb2.MatchField.RANGE:
