@@ -1,0 +1,1339 @@
+Calling target program-options parser
+[02:45:23.987] [bmv2] [D] [thread 24238] Set default default entry for table 'cis553Ingress.tiHandleEthernet': cis553Ingress.aiNotForMe - 
+[02:45:23.987] [bmv2] [D] [thread 24238] Set default default entry for table 'tbl_aDrop': cis553Ingress.aDrop - 
+[02:45:23.988] [bmv2] [D] [thread 24238] Set default default entry for table 'cis553Ingress.tiIpv4Lpm': cis553Ingress.aDrop - 
+[02:45:23.988] [bmv2] [D] [thread 24238] Set default default entry for table 'cis553Ingress.tiArpResponse': cis553Ingress.aDrop - 
+[02:45:23.988] [bmv2] [D] [thread 24238] Set default default entry for table 'tbl_aDrop_0': cis553Ingress.aDrop - 
+Adding interface s1-eth1 as port 1
+[02:45:23.990] [bmv2] [D] [thread 24238] Adding interface s1-eth1 as port 1
+Adding interface s1-eth2 as port 2
+[02:45:23.998] [bmv2] [D] [thread 24238] Adding interface s1-eth2 as port 2
+Adding interface s1-eth3 as port 3
+[02:45:24.007] [bmv2] [D] [thread 24238] Adding interface s1-eth3 as port 3
+I0217 02:45:24.014684754   24238 server_builder.cc:247]      Synchronous server. Num CQs: 1, Min pollers: 1, Max Pollers: 2147483647, CQ timeout (msec): 1000
+Server listening on 0.0.0.0:50051
+[02:45:24.018] [bmv2] [W] [thread 24238] You used the '--thrift-port' command-line option, but this target was compiled without Thrift support. You can enable Thrift support (not recommended) by providing '--with-thrift' to configure.
+[02:45:24.123] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Processing packet received on port 2
+[02:45:24.123] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Parser 'parser': start
+[02:45:24.124] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:24.124] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Extracting header 'ethernet'
+[02:45:24.124] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:24.124] [bmv2] [T] [thread 24265] [0.0] [cxt 0] Bytes parsed: 14
+[02:45:24.124] [bmv2] [T] [thread 24265] [0.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:24.125] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Parser 'parser': end
+[02:45:24.125] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Pipeline 'ingress': start
+[02:45:24.125] [bmv2] [T] [thread 24265] [0.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:24.125] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 3333ff010200
+* standard_metadata.ingress_port: 0002
+
+[02:45:24.126] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:24.126] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:24.126] [bmv2] [T] [thread 24265] [0.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:24.126] [bmv2] [T] [thread 24265] [0.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:24.126] [bmv2] [T] [thread 24265] [0.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:24.126] [bmv2] [T] [thread 24265] [0.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:24.127] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Looking up key:
+
+[02:45:24.127] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:24.127] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:24.128] [bmv2] [T] [thread 24265] [0.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:24.128] [bmv2] [T] [thread 24265] [0.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:24.128] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Pipeline 'ingress': end
+[02:45:24.128] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Egress port is 511
+[02:45:24.128] [bmv2] [D] [thread 24265] [0.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:24.250] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Processing packet received on port 3
+[02:45:24.251] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Parser 'parser': start
+[02:45:24.251] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:24.251] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Extracting header 'ethernet'
+[02:45:24.251] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:24.252] [bmv2] [T] [thread 24265] [1.0] [cxt 0] Bytes parsed: 14
+[02:45:24.252] [bmv2] [T] [thread 24265] [1.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:24.252] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Parser 'parser': end
+[02:45:24.252] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Pipeline 'ingress': start
+[02:45:24.252] [bmv2] [T] [thread 24265] [1.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:24.252] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 3333ff030100
+* standard_metadata.ingress_port: 0003
+
+[02:45:24.253] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:24.253] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:24.253] [bmv2] [T] [thread 24265] [1.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:24.253] [bmv2] [T] [thread 24265] [1.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:24.253] [bmv2] [T] [thread 24265] [1.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:24.253] [bmv2] [T] [thread 24265] [1.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:24.254] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Looking up key:
+
+[02:45:24.254] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:24.254] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:24.254] [bmv2] [T] [thread 24265] [1.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:24.254] [bmv2] [T] [thread 24265] [1.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:24.254] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Pipeline 'ingress': end
+[02:45:24.255] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Egress port is 511
+[02:45:24.255] [bmv2] [D] [thread 24265] [1.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:24.302] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Processing packet received on port 2
+[02:45:24.303] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Parser 'parser': start
+[02:45:24.303] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:24.303] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Extracting header 'ethernet'
+[02:45:24.304] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:24.304] [bmv2] [T] [thread 24265] [2.0] [cxt 0] Bytes parsed: 14
+[02:45:24.304] [bmv2] [T] [thread 24265] [2.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:24.304] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Parser 'parser': end
+[02:45:24.305] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Pipeline 'ingress': start
+[02:45:24.305] [bmv2] [T] [thread 24265] [2.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:24.305] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 3333ff020100
+* standard_metadata.ingress_port: 0002
+
+[02:45:24.305] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:24.306] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:24.306] [bmv2] [T] [thread 24265] [2.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:24.306] [bmv2] [T] [thread 24265] [2.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:24.306] [bmv2] [T] [thread 24265] [2.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:24.306] [bmv2] [T] [thread 24265] [2.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:24.306] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Looking up key:
+
+[02:45:24.306] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:24.307] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:24.307] [bmv2] [T] [thread 24265] [2.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:24.307] [bmv2] [T] [thread 24265] [2.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:24.307] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Pipeline 'ingress': end
+[02:45:24.308] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Egress port is 511
+[02:45:24.308] [bmv2] [D] [thread 24265] [2.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:24.548] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Processing packet received on port 3
+[02:45:24.549] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Parser 'parser': start
+[02:45:24.549] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:24.549] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Extracting header 'ethernet'
+[02:45:24.549] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:24.549] [bmv2] [T] [thread 24265] [3.0] [cxt 0] Bytes parsed: 14
+[02:45:24.551] [bmv2] [T] [thread 24265] [3.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:24.551] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Parser 'parser': end
+[02:45:24.552] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Pipeline 'ingress': start
+[02:45:24.552] [bmv2] [T] [thread 24265] [3.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:24.552] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0003
+
+[02:45:24.552] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:24.552] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:24.552] [bmv2] [T] [thread 24265] [3.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:24.553] [bmv2] [T] [thread 24265] [3.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:24.553] [bmv2] [T] [thread 24265] [3.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:24.553] [bmv2] [T] [thread 24265] [3.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:24.553] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Looking up key:
+
+[02:45:24.553] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:24.553] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:24.554] [bmv2] [T] [thread 24265] [3.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:24.555] [bmv2] [T] [thread 24265] [3.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:24.556] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Pipeline 'ingress': end
+[02:45:24.556] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Egress port is 511
+[02:45:24.556] [bmv2] [D] [thread 24265] [3.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:24.556] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Processing packet received on port 1
+[02:45:24.556] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Parser 'parser': start
+[02:45:24.557] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:24.557] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Extracting header 'ethernet'
+[02:45:24.557] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:24.558] [bmv2] [T] [thread 24265] [4.0] [cxt 0] Bytes parsed: 14
+[02:45:24.562] [bmv2] [T] [thread 24265] [4.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:24.566] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Parser 'parser': end
+[02:45:24.569] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Pipeline 'ingress': start
+[02:45:24.570] [bmv2] [T] [thread 24265] [4.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:24.571] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0001
+
+[02:45:24.572] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:24.573] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:24.576] [bmv2] [T] [thread 24265] [4.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:24.577] [bmv2] [T] [thread 24265] [4.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:24.582] [bmv2] [T] [thread 24265] [4.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:24.583] [bmv2] [T] [thread 24265] [4.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:24.586] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Looking up key:
+
+[02:45:24.586] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:24.586] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:24.599] [bmv2] [T] [thread 24265] [4.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:24.599] [bmv2] [T] [thread 24265] [4.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:24.599] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Pipeline 'ingress': end
+[02:45:24.599] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Egress port is 511
+[02:45:24.599] [bmv2] [D] [thread 24265] [4.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:24.599] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Processing packet received on port 1
+[02:45:24.599] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Parser 'parser': start
+[02:45:24.600] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:24.600] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Extracting header 'ethernet'
+[02:45:24.600] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:24.600] [bmv2] [T] [thread 24265] [5.0] [cxt 0] Bytes parsed: 14
+[02:45:24.600] [bmv2] [T] [thread 24265] [5.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:24.600] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Parser 'parser': end
+[02:45:24.600] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Pipeline 'ingress': start
+[02:45:24.600] [bmv2] [T] [thread 24265] [5.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:24.600] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0001
+
+[02:45:24.601] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:24.601] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:24.601] [bmv2] [T] [thread 24265] [5.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:24.601] [bmv2] [T] [thread 24265] [5.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:24.601] [bmv2] [T] [thread 24265] [5.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:24.601] [bmv2] [T] [thread 24265] [5.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:24.601] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Looking up key:
+
+[02:45:24.601] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:24.601] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:24.602] [bmv2] [T] [thread 24265] [5.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:24.603] [bmv2] [T] [thread 24265] [5.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:24.604] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Pipeline 'ingress': end
+[02:45:24.605] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Egress port is 511
+[02:45:24.605] [bmv2] [D] [thread 24265] [5.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:24.754] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Processing packet received on port 1
+[02:45:24.754] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Parser 'parser': start
+[02:45:24.754] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:24.754] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Extracting header 'ethernet'
+[02:45:24.755] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:24.755] [bmv2] [T] [thread 24265] [6.0] [cxt 0] Bytes parsed: 14
+[02:45:24.755] [bmv2] [T] [thread 24265] [6.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:24.755] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Parser 'parser': end
+[02:45:24.755] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Pipeline 'ingress': start
+[02:45:24.755] [bmv2] [T] [thread 24265] [6.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:24.755] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0001
+
+[02:45:24.756] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:24.756] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:24.756] [bmv2] [T] [thread 24265] [6.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:24.756] [bmv2] [T] [thread 24265] [6.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:24.756] [bmv2] [T] [thread 24265] [6.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:24.756] [bmv2] [T] [thread 24265] [6.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:24.756] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Looking up key:
+
+[02:45:24.756] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:24.756] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:24.757] [bmv2] [T] [thread 24265] [6.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:24.757] [bmv2] [T] [thread 24265] [6.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:24.757] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Pipeline 'ingress': end
+[02:45:24.757] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Egress port is 511
+[02:45:24.757] [bmv2] [D] [thread 24265] [6.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:24.928] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Processing packet received on port 3
+[02:45:24.928] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Parser 'parser': start
+[02:45:24.928] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:24.929] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Extracting header 'ethernet'
+[02:45:24.929] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:24.929] [bmv2] [T] [thread 24265] [7.0] [cxt 0] Bytes parsed: 14
+[02:45:24.929] [bmv2] [T] [thread 24265] [7.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:24.929] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Parser 'parser': end
+[02:45:24.929] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Pipeline 'ingress': start
+[02:45:24.929] [bmv2] [T] [thread 24265] [7.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:24.930] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0003
+
+[02:45:24.930] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:24.930] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:24.930] [bmv2] [T] [thread 24265] [7.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:24.930] [bmv2] [T] [thread 24265] [7.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:24.931] [bmv2] [T] [thread 24265] [7.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:24.931] [bmv2] [T] [thread 24265] [7.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:24.931] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Looking up key:
+
+[02:45:24.931] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:24.931] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:24.932] [bmv2] [T] [thread 24265] [7.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:24.932] [bmv2] [T] [thread 24265] [7.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:24.932] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Pipeline 'ingress': end
+[02:45:24.932] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Egress port is 511
+[02:45:24.932] [bmv2] [D] [thread 24265] [7.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:24.932] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Processing packet received on port 3
+[02:45:24.933] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Parser 'parser': start
+[02:45:24.933] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:24.933] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Extracting header 'ethernet'
+[02:45:24.933] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:24.933] [bmv2] [T] [thread 24265] [8.0] [cxt 0] Bytes parsed: 14
+[02:45:24.933] [bmv2] [T] [thread 24265] [8.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:24.934] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Parser 'parser': end
+[02:45:24.934] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Pipeline 'ingress': start
+[02:45:24.934] [bmv2] [T] [thread 24265] [8.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:24.934] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0003
+
+[02:45:24.934] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:24.935] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:24.935] [bmv2] [T] [thread 24265] [8.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:24.935] [bmv2] [T] [thread 24265] [8.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:24.935] [bmv2] [T] [thread 24265] [8.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:24.935] [bmv2] [T] [thread 24265] [8.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:24.936] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Looking up key:
+
+[02:45:24.936] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:24.936] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:24.936] [bmv2] [T] [thread 24265] [8.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:24.936] [bmv2] [T] [thread 24265] [8.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:24.936] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Pipeline 'ingress': end
+[02:45:24.936] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Egress port is 511
+[02:45:24.937] [bmv2] [D] [thread 24265] [8.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.124] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Processing packet received on port 2
+[02:45:25.124] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Parser 'parser': start
+[02:45:25.125] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.125] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.125] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.125] [bmv2] [T] [thread 24265] [9.0] [cxt 0] Bytes parsed: 14
+[02:45:25.125] [bmv2] [T] [thread 24265] [9.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.125] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Parser 'parser': end
+[02:45:25.126] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.126] [bmv2] [T] [thread 24265] [9.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.126] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0002
+
+[02:45:25.127] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.127] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.127] [bmv2] [T] [thread 24265] [9.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.127] [bmv2] [T] [thread 24265] [9.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.127] [bmv2] [T] [thread 24265] [9.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.127] [bmv2] [T] [thread 24265] [9.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.128] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Looking up key:
+
+[02:45:25.128] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.128] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.128] [bmv2] [T] [thread 24265] [9.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.129] [bmv2] [T] [thread 24265] [9.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.129] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.129] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Egress port is 511
+[02:45:25.129] [bmv2] [D] [thread 24265] [9.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.130] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Processing packet received on port 2
+[02:45:25.130] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Parser 'parser': start
+[02:45:25.130] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.131] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.131] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.131] [bmv2] [T] [thread 24265] [10.0] [cxt 0] Bytes parsed: 14
+[02:45:25.131] [bmv2] [T] [thread 24265] [10.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.131] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Parser 'parser': end
+[02:45:25.132] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.132] [bmv2] [T] [thread 24265] [10.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.132] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0002
+
+[02:45:25.132] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.133] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.133] [bmv2] [T] [thread 24265] [10.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.133] [bmv2] [T] [thread 24265] [10.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.133] [bmv2] [T] [thread 24265] [10.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.133] [bmv2] [T] [thread 24265] [10.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.133] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Looking up key:
+
+[02:45:25.134] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.134] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.134] [bmv2] [T] [thread 24265] [10.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.134] [bmv2] [T] [thread 24265] [10.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.134] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.134] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Egress port is 511
+[02:45:25.134] [bmv2] [D] [thread 24265] [10.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.198] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Processing packet received on port 1
+[02:45:25.198] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Parser 'parser': start
+[02:45:25.199] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.199] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.199] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.199] [bmv2] [T] [thread 24265] [11.0] [cxt 0] Bytes parsed: 14
+[02:45:25.200] [bmv2] [T] [thread 24265] [11.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.200] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Parser 'parser': end
+[02:45:25.200] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.200] [bmv2] [T] [thread 24265] [11.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.201] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0001
+
+[02:45:25.201] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.201] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.201] [bmv2] [T] [thread 24265] [11.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.202] [bmv2] [T] [thread 24265] [11.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.202] [bmv2] [T] [thread 24265] [11.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.202] [bmv2] [T] [thread 24265] [11.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.202] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Looking up key:
+
+[02:45:25.203] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.203] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.203] [bmv2] [T] [thread 24265] [11.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.203] [bmv2] [T] [thread 24265] [11.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.204] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.204] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Egress port is 511
+[02:45:25.204] [bmv2] [D] [thread 24265] [11.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.243] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Processing packet received on port 2
+[02:45:25.244] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Parser 'parser': start
+[02:45:25.244] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.244] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.245] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.245] [bmv2] [T] [thread 24265] [12.0] [cxt 0] Bytes parsed: 14
+[02:45:25.245] [bmv2] [T] [thread 24265] [12.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.246] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Parser 'parser': end
+[02:45:25.246] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.247] [bmv2] [T] [thread 24265] [12.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.247] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0002
+
+[02:45:25.247] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.248] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.248] [bmv2] [T] [thread 24265] [12.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.248] [bmv2] [T] [thread 24265] [12.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.248] [bmv2] [T] [thread 24265] [12.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.248] [bmv2] [T] [thread 24265] [12.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.249] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Looking up key:
+
+[02:45:25.249] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.249] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.249] [bmv2] [T] [thread 24265] [12.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.252] [bmv2] [T] [thread 24265] [12.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.253] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.253] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Egress port is 511
+[02:45:25.253] [bmv2] [D] [thread 24265] [12.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.253] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Processing packet received on port 3
+[02:45:25.253] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Parser 'parser': start
+[02:45:25.254] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.254] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.254] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.254] [bmv2] [T] [thread 24265] [13.0] [cxt 0] Bytes parsed: 14
+[02:45:25.255] [bmv2] [T] [thread 24265] [13.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.256] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Parser 'parser': end
+[02:45:25.256] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.256] [bmv2] [T] [thread 24265] [13.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.256] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0003
+
+[02:45:25.257] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.257] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.257] [bmv2] [T] [thread 24265] [13.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.257] [bmv2] [T] [thread 24265] [13.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.257] [bmv2] [T] [thread 24265] [13.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.258] [bmv2] [T] [thread 24265] [13.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.259] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Looking up key:
+
+[02:45:25.259] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.260] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.260] [bmv2] [T] [thread 24265] [13.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.260] [bmv2] [T] [thread 24265] [13.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.260] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.261] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Egress port is 511
+[02:45:25.261] [bmv2] [D] [thread 24265] [13.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.261] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Processing packet received on port 3
+[02:45:25.261] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Parser 'parser': start
+[02:45:25.262] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.262] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.263] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.263] [bmv2] [T] [thread 24265] [14.0] [cxt 0] Bytes parsed: 14
+[02:45:25.263] [bmv2] [T] [thread 24265] [14.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.264] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Parser 'parser': end
+[02:45:25.265] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.265] [bmv2] [T] [thread 24265] [14.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.265] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0003
+
+[02:45:25.265] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.265] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.265] [bmv2] [T] [thread 24265] [14.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.265] [bmv2] [T] [thread 24265] [14.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.266] [bmv2] [T] [thread 24265] [14.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.266] [bmv2] [T] [thread 24265] [14.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.266] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Looking up key:
+
+[02:45:25.266] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.266] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.266] [bmv2] [T] [thread 24265] [14.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.266] [bmv2] [T] [thread 24265] [14.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.266] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.266] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Egress port is 511
+[02:45:25.266] [bmv2] [D] [thread 24265] [14.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.267] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Processing packet received on port 3
+[02:45:25.267] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Parser 'parser': start
+[02:45:25.267] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.267] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.267] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.267] [bmv2] [T] [thread 24265] [15.0] [cxt 0] Bytes parsed: 14
+[02:45:25.267] [bmv2] [T] [thread 24265] [15.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.267] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Parser 'parser': end
+[02:45:25.267] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.267] [bmv2] [T] [thread 24265] [15.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.267] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0003
+
+[02:45:25.267] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.268] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.268] [bmv2] [T] [thread 24265] [15.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.268] [bmv2] [T] [thread 24265] [15.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.268] [bmv2] [T] [thread 24265] [15.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.268] [bmv2] [T] [thread 24265] [15.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.268] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Looking up key:
+
+[02:45:25.268] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.268] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.268] [bmv2] [T] [thread 24265] [15.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.268] [bmv2] [T] [thread 24265] [15.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.268] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.269] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Egress port is 511
+[02:45:25.269] [bmv2] [D] [thread 24265] [15.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.305] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Processing packet received on port 2
+[02:45:25.305] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Parser 'parser': start
+[02:45:25.307] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.309] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.309] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.309] [bmv2] [T] [thread 24265] [16.0] [cxt 0] Bytes parsed: 14
+[02:45:25.309] [bmv2] [T] [thread 24265] [16.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.309] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Parser 'parser': end
+[02:45:25.310] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.310] [bmv2] [T] [thread 24265] [16.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.312] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0002
+
+[02:45:25.314] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.314] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.314] [bmv2] [T] [thread 24265] [16.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.314] [bmv2] [T] [thread 24265] [16.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.314] [bmv2] [T] [thread 24265] [16.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.315] [bmv2] [T] [thread 24265] [16.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.315] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Looking up key:
+
+[02:45:25.315] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.315] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.315] [bmv2] [T] [thread 24265] [16.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.315] [bmv2] [T] [thread 24265] [16.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.315] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.315] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Egress port is 511
+[02:45:25.315] [bmv2] [D] [thread 24265] [16.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.316] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Processing packet received on port 2
+[02:45:25.316] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Parser 'parser': start
+[02:45:25.316] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.316] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.316] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.316] [bmv2] [T] [thread 24265] [17.0] [cxt 0] Bytes parsed: 14
+[02:45:25.316] [bmv2] [T] [thread 24265] [17.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.316] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Parser 'parser': end
+[02:45:25.317] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.317] [bmv2] [T] [thread 24265] [17.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.317] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0002
+
+[02:45:25.317] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.317] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.317] [bmv2] [T] [thread 24265] [17.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.317] [bmv2] [T] [thread 24265] [17.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.317] [bmv2] [T] [thread 24265] [17.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.317] [bmv2] [T] [thread 24265] [17.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.317] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Looking up key:
+
+[02:45:25.317] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.318] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.318] [bmv2] [T] [thread 24265] [17.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.318] [bmv2] [T] [thread 24265] [17.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.318] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.319] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Egress port is 511
+[02:45:25.319] [bmv2] [D] [thread 24265] [17.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.426] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Processing packet received on port 3
+[02:45:25.427] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Parser 'parser': start
+[02:45:25.427] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.427] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.428] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.428] [bmv2] [T] [thread 24265] [18.0] [cxt 0] Bytes parsed: 14
+[02:45:25.428] [bmv2] [T] [thread 24265] [18.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.429] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Parser 'parser': end
+[02:45:25.429] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.429] [bmv2] [T] [thread 24265] [18.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.429] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0003
+
+[02:45:25.429] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.430] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.430] [bmv2] [T] [thread 24265] [18.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.430] [bmv2] [T] [thread 24265] [18.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.431] [bmv2] [T] [thread 24265] [18.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.431] [bmv2] [T] [thread 24265] [18.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.432] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Looking up key:
+
+[02:45:25.432] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.432] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.432] [bmv2] [T] [thread 24265] [18.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.432] [bmv2] [T] [thread 24265] [18.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.433] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.433] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Egress port is 511
+[02:45:25.433] [bmv2] [D] [thread 24265] [18.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:25.942] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Processing packet received on port 2
+[02:45:25.943] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Parser 'parser': start
+[02:45:25.943] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:25.944] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Extracting header 'ethernet'
+[02:45:25.944] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:25.944] [bmv2] [T] [thread 24265] [19.0] [cxt 0] Bytes parsed: 14
+[02:45:25.945] [bmv2] [T] [thread 24265] [19.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:25.945] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Parser 'parser': end
+[02:45:25.946] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Pipeline 'ingress': start
+[02:45:25.946] [bmv2] [T] [thread 24265] [19.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:25.948] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0002
+
+[02:45:25.948] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:25.948] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:25.949] [bmv2] [T] [thread 24265] [19.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:25.949] [bmv2] [T] [thread 24265] [19.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:25.949] [bmv2] [T] [thread 24265] [19.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:25.950] [bmv2] [T] [thread 24265] [19.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:25.950] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Looking up key:
+
+[02:45:25.950] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:25.951] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:25.951] [bmv2] [T] [thread 24265] [19.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:25.951] [bmv2] [T] [thread 24265] [19.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:25.951] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Pipeline 'ingress': end
+[02:45:25.952] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Egress port is 511
+[02:45:25.952] [bmv2] [D] [thread 24265] [19.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:26.565] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Processing packet received on port 1
+[02:45:26.567] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Parser 'parser': start
+[02:45:26.568] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:26.569] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Extracting header 'ethernet'
+[02:45:26.569] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:26.569] [bmv2] [T] [thread 24265] [20.0] [cxt 0] Bytes parsed: 14
+[02:45:26.569] [bmv2] [T] [thread 24265] [20.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:26.570] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Parser 'parser': end
+[02:45:26.570] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Pipeline 'ingress': start
+[02:45:26.570] [bmv2] [T] [thread 24265] [20.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:26.570] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0001
+
+[02:45:26.571] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:26.572] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:26.572] [bmv2] [T] [thread 24265] [20.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:26.573] [bmv2] [T] [thread 24265] [20.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:26.573] [bmv2] [T] [thread 24265] [20.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:26.573] [bmv2] [T] [thread 24265] [20.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:26.573] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Looking up key:
+
+[02:45:26.573] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:26.573] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:26.573] [bmv2] [T] [thread 24265] [20.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:26.574] [bmv2] [T] [thread 24265] [20.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:26.574] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Pipeline 'ingress': end
+[02:45:26.574] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Egress port is 511
+[02:45:26.574] [bmv2] [D] [thread 24265] [20.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:26.574] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Processing packet received on port 1
+[02:45:26.575] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Parser 'parser': start
+[02:45:26.576] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:26.576] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Extracting header 'ethernet'
+[02:45:26.576] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:26.576] [bmv2] [T] [thread 24265] [21.0] [cxt 0] Bytes parsed: 14
+[02:45:26.576] [bmv2] [T] [thread 24265] [21.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:26.576] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Parser 'parser': end
+[02:45:26.577] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Pipeline 'ingress': start
+[02:45:26.577] [bmv2] [T] [thread 24265] [21.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:26.577] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000016
+* standard_metadata.ingress_port: 0001
+
+[02:45:26.577] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:26.577] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:26.577] [bmv2] [T] [thread 24265] [21.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:26.577] [bmv2] [T] [thread 24265] [21.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:26.577] [bmv2] [T] [thread 24265] [21.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:26.578] [bmv2] [T] [thread 24265] [21.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:26.578] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Looking up key:
+
+[02:45:26.578] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:26.578] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:26.578] [bmv2] [T] [thread 24265] [21.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:26.579] [bmv2] [T] [thread 24265] [21.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:26.579] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Pipeline 'ingress': end
+[02:45:26.579] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Egress port is 511
+[02:45:26.580] [bmv2] [D] [thread 24265] [21.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:28.559] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Processing packet received on port 1
+[02:45:28.559] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Parser 'parser': start
+[02:45:28.559] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:28.560] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Extracting header 'ethernet'
+[02:45:28.560] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:28.560] [bmv2] [T] [thread 24265] [22.0] [cxt 0] Bytes parsed: 14
+[02:45:28.560] [bmv2] [T] [thread 24265] [22.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:28.561] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Parser 'parser': end
+[02:45:28.561] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Pipeline 'ingress': start
+[02:45:28.561] [bmv2] [T] [thread 24265] [22.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:28.561] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0001
+
+[02:45:28.562] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:28.562] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:28.562] [bmv2] [T] [thread 24265] [22.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:28.562] [bmv2] [T] [thread 24265] [22.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:28.563] [bmv2] [T] [thread 24265] [22.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:28.563] [bmv2] [T] [thread 24265] [22.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:28.563] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Looking up key:
+
+[02:45:28.563] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:28.564] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:28.564] [bmv2] [T] [thread 24265] [22.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:28.564] [bmv2] [T] [thread 24265] [22.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:28.564] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Pipeline 'ingress': end
+[02:45:28.564] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Egress port is 511
+[02:45:28.564] [bmv2] [D] [thread 24265] [22.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:28.935] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Processing packet received on port 3
+[02:45:28.935] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Parser 'parser': start
+[02:45:28.935] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:28.936] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Extracting header 'ethernet'
+[02:45:28.936] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:28.937] [bmv2] [T] [thread 24265] [23.0] [cxt 0] Bytes parsed: 14
+[02:45:28.937] [bmv2] [T] [thread 24265] [23.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:28.937] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Parser 'parser': end
+[02:45:28.938] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Pipeline 'ingress': start
+[02:45:28.938] [bmv2] [T] [thread 24265] [23.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:28.938] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0003
+
+[02:45:28.939] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:28.939] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:28.939] [bmv2] [T] [thread 24265] [23.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:28.940] [bmv2] [T] [thread 24265] [23.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:28.940] [bmv2] [T] [thread 24265] [23.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:28.940] [bmv2] [T] [thread 24265] [23.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:28.940] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Looking up key:
+
+[02:45:28.941] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:28.941] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:28.941] [bmv2] [T] [thread 24265] [23.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:28.941] [bmv2] [T] [thread 24265] [23.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:28.942] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Pipeline 'ingress': end
+[02:45:28.942] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Egress port is 511
+[02:45:28.942] [bmv2] [D] [thread 24265] [23.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:29.135] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Processing packet received on port 2
+[02:45:29.135] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Parser 'parser': start
+[02:45:29.135] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:29.135] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Extracting header 'ethernet'
+[02:45:29.136] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:29.136] [bmv2] [T] [thread 24265] [24.0] [cxt 0] Bytes parsed: 14
+[02:45:29.136] [bmv2] [T] [thread 24265] [24.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:29.136] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Parser 'parser': end
+[02:45:29.136] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Pipeline 'ingress': start
+[02:45:29.137] [bmv2] [T] [thread 24265] [24.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:29.137] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0002
+
+[02:45:29.137] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:29.137] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:29.138] [bmv2] [T] [thread 24265] [24.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:29.138] [bmv2] [T] [thread 24265] [24.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:29.138] [bmv2] [T] [thread 24265] [24.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:29.138] [bmv2] [T] [thread 24265] [24.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:29.139] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Looking up key:
+
+[02:45:29.139] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:29.140] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:29.140] [bmv2] [T] [thread 24265] [24.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:29.140] [bmv2] [T] [thread 24265] [24.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:29.141] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Pipeline 'ingress': end
+[02:45:29.141] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Egress port is 511
+[02:45:29.141] [bmv2] [D] [thread 24265] [24.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:29.262] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Processing packet received on port 3
+[02:45:29.263] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Parser 'parser': start
+[02:45:29.263] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:29.263] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Extracting header 'ethernet'
+[02:45:29.264] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:29.264] [bmv2] [T] [thread 24265] [25.0] [cxt 0] Bytes parsed: 14
+[02:45:29.264] [bmv2] [T] [thread 24265] [25.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:29.264] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Parser 'parser': end
+[02:45:29.264] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Pipeline 'ingress': start
+[02:45:29.264] [bmv2] [T] [thread 24265] [25.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:29.265] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0003
+
+[02:45:29.265] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:29.266] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:29.266] [bmv2] [T] [thread 24265] [25.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:29.266] [bmv2] [T] [thread 24265] [25.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:29.266] [bmv2] [T] [thread 24265] [25.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:29.266] [bmv2] [T] [thread 24265] [25.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:29.266] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Looking up key:
+
+[02:45:29.266] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:29.266] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:29.267] [bmv2] [T] [thread 24265] [25.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:29.267] [bmv2] [T] [thread 24265] [25.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:29.267] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Pipeline 'ingress': end
+[02:45:29.267] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Egress port is 511
+[02:45:29.268] [bmv2] [D] [thread 24265] [25.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:29.311] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Processing packet received on port 2
+[02:45:29.311] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Parser 'parser': start
+[02:45:29.311] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:29.311] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Extracting header 'ethernet'
+[02:45:29.312] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:29.312] [bmv2] [T] [thread 24265] [26.0] [cxt 0] Bytes parsed: 14
+[02:45:29.312] [bmv2] [T] [thread 24265] [26.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:29.312] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Parser 'parser': end
+[02:45:29.313] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Pipeline 'ingress': start
+[02:45:29.313] [bmv2] [T] [thread 24265] [26.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:29.313] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0002
+
+[02:45:29.313] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:29.314] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:29.314] [bmv2] [T] [thread 24265] [26.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:29.314] [bmv2] [T] [thread 24265] [26.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:29.314] [bmv2] [T] [thread 24265] [26.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:29.315] [bmv2] [T] [thread 24265] [26.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:29.315] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Looking up key:
+
+[02:45:29.316] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:29.316] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:29.316] [bmv2] [T] [thread 24265] [26.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:29.316] [bmv2] [T] [thread 24265] [26.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:29.316] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Pipeline 'ingress': end
+[02:45:29.316] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Egress port is 511
+[02:45:29.316] [bmv2] [D] [thread 24265] [26.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:32.569] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Processing packet received on port 1
+[02:45:32.572] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Parser 'parser': start
+[02:45:32.572] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:32.573] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Extracting header 'ethernet'
+[02:45:32.573] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:32.573] [bmv2] [T] [thread 24265] [27.0] [cxt 0] Bytes parsed: 14
+[02:45:32.574] [bmv2] [T] [thread 24265] [27.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:32.574] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Parser 'parser': end
+[02:45:32.574] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Pipeline 'ingress': start
+[02:45:32.574] [bmv2] [T] [thread 24265] [27.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:32.575] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0001
+
+[02:45:32.575] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:32.575] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:32.576] [bmv2] [T] [thread 24265] [27.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:32.576] [bmv2] [T] [thread 24265] [27.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:32.576] [bmv2] [T] [thread 24265] [27.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:32.576] [bmv2] [T] [thread 24265] [27.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:32.576] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Looking up key:
+
+[02:45:32.577] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:32.577] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:32.577] [bmv2] [T] [thread 24265] [27.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:32.577] [bmv2] [T] [thread 24265] [27.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:32.577] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Pipeline 'ingress': end
+[02:45:32.577] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Egress port is 511
+[02:45:32.577] [bmv2] [D] [thread 24265] [27.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:32.945] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Processing packet received on port 3
+[02:45:32.945] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Parser 'parser': start
+[02:45:32.945] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:32.946] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Extracting header 'ethernet'
+[02:45:32.946] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:32.946] [bmv2] [T] [thread 24265] [28.0] [cxt 0] Bytes parsed: 14
+[02:45:32.947] [bmv2] [T] [thread 24265] [28.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:32.947] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Parser 'parser': end
+[02:45:32.947] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Pipeline 'ingress': start
+[02:45:32.947] [bmv2] [T] [thread 24265] [28.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:32.948] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0003
+
+[02:45:32.948] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:32.948] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:32.948] [bmv2] [T] [thread 24265] [28.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:32.948] [bmv2] [T] [thread 24265] [28.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:32.949] [bmv2] [T] [thread 24265] [28.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:32.949] [bmv2] [T] [thread 24265] [28.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:32.949] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Looking up key:
+
+[02:45:32.950] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:32.950] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:32.950] [bmv2] [T] [thread 24265] [28.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:32.950] [bmv2] [T] [thread 24265] [28.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:32.951] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Pipeline 'ingress': end
+[02:45:32.951] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Egress port is 511
+[02:45:32.951] [bmv2] [D] [thread 24265] [28.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:33.145] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Processing packet received on port 2
+[02:45:33.145] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Parser 'parser': start
+[02:45:33.145] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:33.145] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Extracting header 'ethernet'
+[02:45:33.146] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:33.146] [bmv2] [T] [thread 24265] [29.0] [cxt 0] Bytes parsed: 14
+[02:45:33.146] [bmv2] [T] [thread 24265] [29.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:33.146] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Parser 'parser': end
+[02:45:33.147] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Pipeline 'ingress': start
+[02:45:33.147] [bmv2] [T] [thread 24265] [29.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:33.147] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0002
+
+[02:45:33.147] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:33.148] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:33.148] [bmv2] [T] [thread 24265] [29.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:33.148] [bmv2] [T] [thread 24265] [29.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:33.148] [bmv2] [T] [thread 24265] [29.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:33.148] [bmv2] [T] [thread 24265] [29.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:33.149] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Looking up key:
+
+[02:45:33.149] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:33.149] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:33.149] [bmv2] [T] [thread 24265] [29.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:33.149] [bmv2] [T] [thread 24265] [29.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:33.150] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Pipeline 'ingress': end
+[02:45:33.150] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Egress port is 511
+[02:45:33.150] [bmv2] [D] [thread 24265] [29.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:33.271] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Processing packet received on port 3
+[02:45:33.271] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Parser 'parser': start
+[02:45:33.271] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:33.272] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Extracting header 'ethernet'
+[02:45:33.272] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:33.272] [bmv2] [T] [thread 24265] [30.0] [cxt 0] Bytes parsed: 14
+[02:45:33.274] [bmv2] [T] [thread 24265] [30.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:33.274] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Parser 'parser': end
+[02:45:33.275] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Pipeline 'ingress': start
+[02:45:33.275] [bmv2] [T] [thread 24265] [30.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:33.275] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0003
+
+[02:45:33.275] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:33.275] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:33.276] [bmv2] [T] [thread 24265] [30.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:33.276] [bmv2] [T] [thread 24265] [30.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:33.276] [bmv2] [T] [thread 24265] [30.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:33.276] [bmv2] [T] [thread 24265] [30.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:33.276] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Looking up key:
+
+[02:45:33.276] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:33.277] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:33.278] [bmv2] [T] [thread 24265] [30.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:33.279] [bmv2] [T] [thread 24265] [30.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:33.279] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Pipeline 'ingress': end
+[02:45:33.279] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Egress port is 511
+[02:45:33.279] [bmv2] [D] [thread 24265] [30.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:33.322] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Processing packet received on port 2
+[02:45:33.322] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Parser 'parser': start
+[02:45:33.323] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:33.323] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Extracting header 'ethernet'
+[02:45:33.323] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Parser state 'start': key is 86dd
+[02:45:33.323] [bmv2] [T] [thread 24265] [31.0] [cxt 0] Bytes parsed: 14
+[02:45:33.323] [bmv2] [T] [thread 24265] [31.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:33.324] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Parser 'parser': end
+[02:45:33.324] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Pipeline 'ingress': start
+[02:45:33.324] [bmv2] [T] [thread 24265] [31.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:33.324] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : 333300000002
+* standard_metadata.ingress_port: 0002
+
+[02:45:33.324] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:33.325] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:33.325] [bmv2] [T] [thread 24265] [31.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:33.325] [bmv2] [T] [thread 24265] [31.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:33.325] [bmv2] [T] [thread 24265] [31.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:33.325] [bmv2] [T] [thread 24265] [31.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:33.326] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Looking up key:
+
+[02:45:33.326] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:33.326] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:33.326] [bmv2] [T] [thread 24265] [31.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:33.326] [bmv2] [T] [thread 24265] [31.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:33.326] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Pipeline 'ingress': end
+[02:45:33.326] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Egress port is 511
+[02:45:33.326] [bmv2] [D] [thread 24265] [31.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:40.471] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Processing packet received on port 1
+[02:45:40.471] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Parser 'parser': start
+[02:45:40.472] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:40.472] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Extracting header 'ethernet'
+[02:45:40.472] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:40.472] [bmv2] [T] [thread 24265] [32.0] [cxt 0] Bytes parsed: 14
+[02:45:40.472] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:40.472] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Extracting header 'arp'
+[02:45:40.473] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:40.473] [bmv2] [T] [thread 24265] [32.0] [cxt 0] Bytes parsed: 22
+[02:45:40.473] [bmv2] [T] [thread 24265] [32.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:40.473] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Parser 'parser': end
+[02:45:40.473] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Pipeline 'ingress': start
+[02:45:40.473] [bmv2] [T] [thread 24265] [32.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:40.474] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:40.474] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:40.474] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:40.474] [bmv2] [T] [thread 24265] [32.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:40.474] [bmv2] [T] [thread 24265] [32.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:40.474] [bmv2] [T] [thread 24265] [32.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:40.474] [bmv2] [T] [thread 24265] [32.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:40.474] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Looking up key:
+
+[02:45:40.474] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:40.474] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:40.475] [bmv2] [T] [thread 24265] [32.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:40.475] [bmv2] [T] [thread 24265] [32.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:40.475] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Pipeline 'ingress': end
+[02:45:40.475] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Egress port is 511
+[02:45:40.475] [bmv2] [D] [thread 24265] [32.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:41.470] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Processing packet received on port 1
+[02:45:41.471] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Parser 'parser': start
+[02:45:41.471] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:41.471] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Extracting header 'ethernet'
+[02:45:41.472] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:41.472] [bmv2] [T] [thread 24265] [33.0] [cxt 0] Bytes parsed: 14
+[02:45:41.472] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:41.473] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Extracting header 'arp'
+[02:45:41.473] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:41.473] [bmv2] [T] [thread 24265] [33.0] [cxt 0] Bytes parsed: 22
+[02:45:41.473] [bmv2] [T] [thread 24265] [33.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:41.474] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Parser 'parser': end
+[02:45:41.474] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Pipeline 'ingress': start
+[02:45:41.474] [bmv2] [T] [thread 24265] [33.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:41.475] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:41.475] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:41.475] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:41.476] [bmv2] [T] [thread 24265] [33.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:41.476] [bmv2] [T] [thread 24265] [33.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:41.476] [bmv2] [T] [thread 24265] [33.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:41.477] [bmv2] [T] [thread 24265] [33.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:41.477] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Looking up key:
+
+[02:45:41.477] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:41.477] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:41.478] [bmv2] [T] [thread 24265] [33.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:41.478] [bmv2] [T] [thread 24265] [33.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:41.478] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Pipeline 'ingress': end
+[02:45:41.478] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Egress port is 511
+[02:45:41.478] [bmv2] [D] [thread 24265] [33.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:42.471] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Processing packet received on port 1
+[02:45:42.471] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Parser 'parser': start
+[02:45:42.472] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:42.472] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Extracting header 'ethernet'
+[02:45:42.472] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:42.473] [bmv2] [T] [thread 24265] [34.0] [cxt 0] Bytes parsed: 14
+[02:45:42.473] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:42.474] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Extracting header 'arp'
+[02:45:42.474] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:42.474] [bmv2] [T] [thread 24265] [34.0] [cxt 0] Bytes parsed: 22
+[02:45:42.474] [bmv2] [T] [thread 24265] [34.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:42.475] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Parser 'parser': end
+[02:45:42.475] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Pipeline 'ingress': start
+[02:45:42.475] [bmv2] [T] [thread 24265] [34.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:42.476] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:42.476] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:42.476] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:42.477] [bmv2] [T] [thread 24265] [34.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:42.477] [bmv2] [T] [thread 24265] [34.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:42.477] [bmv2] [T] [thread 24265] [34.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:42.477] [bmv2] [T] [thread 24265] [34.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:42.478] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Looking up key:
+
+[02:45:42.478] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:42.478] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:42.478] [bmv2] [T] [thread 24265] [34.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:42.479] [bmv2] [T] [thread 24265] [34.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:42.479] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Pipeline 'ingress': end
+[02:45:42.479] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Egress port is 511
+[02:45:42.479] [bmv2] [D] [thread 24265] [34.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:43.473] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Processing packet received on port 1
+[02:45:43.473] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Parser 'parser': start
+[02:45:43.473] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:43.474] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Extracting header 'ethernet'
+[02:45:43.474] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:43.474] [bmv2] [T] [thread 24265] [35.0] [cxt 0] Bytes parsed: 14
+[02:45:43.475] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:43.475] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Extracting header 'arp'
+[02:45:43.475] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:43.476] [bmv2] [T] [thread 24265] [35.0] [cxt 0] Bytes parsed: 22
+[02:45:43.476] [bmv2] [T] [thread 24265] [35.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:43.476] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Parser 'parser': end
+[02:45:43.477] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Pipeline 'ingress': start
+[02:45:43.477] [bmv2] [T] [thread 24265] [35.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:43.477] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:43.477] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:43.477] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:43.478] [bmv2] [T] [thread 24265] [35.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:43.478] [bmv2] [T] [thread 24265] [35.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:43.478] [bmv2] [T] [thread 24265] [35.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:43.478] [bmv2] [T] [thread 24265] [35.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:43.478] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Looking up key:
+
+[02:45:43.479] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:43.479] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:43.479] [bmv2] [T] [thread 24265] [35.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:43.479] [bmv2] [T] [thread 24265] [35.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:43.479] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Pipeline 'ingress': end
+[02:45:43.479] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Egress port is 511
+[02:45:43.479] [bmv2] [D] [thread 24265] [35.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:44.471] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Processing packet received on port 1
+[02:45:44.471] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Parser 'parser': start
+[02:45:44.471] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:44.472] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Extracting header 'ethernet'
+[02:45:44.472] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:44.472] [bmv2] [T] [thread 24265] [36.0] [cxt 0] Bytes parsed: 14
+[02:45:44.473] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:44.473] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Extracting header 'arp'
+[02:45:44.474] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:44.474] [bmv2] [T] [thread 24265] [36.0] [cxt 0] Bytes parsed: 22
+[02:45:44.474] [bmv2] [T] [thread 24265] [36.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:44.474] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Parser 'parser': end
+[02:45:44.475] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Pipeline 'ingress': start
+[02:45:44.475] [bmv2] [T] [thread 24265] [36.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:44.475] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:44.476] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:44.476] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:44.476] [bmv2] [T] [thread 24265] [36.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:44.477] [bmv2] [T] [thread 24265] [36.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:44.477] [bmv2] [T] [thread 24265] [36.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:44.477] [bmv2] [T] [thread 24265] [36.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:44.478] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Looking up key:
+
+[02:45:44.478] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:44.478] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:44.478] [bmv2] [T] [thread 24265] [36.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:44.478] [bmv2] [T] [thread 24265] [36.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:44.479] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Pipeline 'ingress': end
+[02:45:44.479] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Egress port is 511
+[02:45:44.479] [bmv2] [D] [thread 24265] [36.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:45.470] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Processing packet received on port 1
+[02:45:45.471] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Parser 'parser': start
+[02:45:45.471] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:45.471] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Extracting header 'ethernet'
+[02:45:45.472] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:45.472] [bmv2] [T] [thread 24265] [37.0] [cxt 0] Bytes parsed: 14
+[02:45:45.472] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:45.472] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Extracting header 'arp'
+[02:45:45.472] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:45.472] [bmv2] [T] [thread 24265] [37.0] [cxt 0] Bytes parsed: 22
+[02:45:45.473] [bmv2] [T] [thread 24265] [37.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:45.473] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Parser 'parser': end
+[02:45:45.473] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Pipeline 'ingress': start
+[02:45:45.473] [bmv2] [T] [thread 24265] [37.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:45.474] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:45.474] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:45.474] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:45.474] [bmv2] [T] [thread 24265] [37.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:45.474] [bmv2] [T] [thread 24265] [37.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:45.475] [bmv2] [T] [thread 24265] [37.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:45.475] [bmv2] [T] [thread 24265] [37.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:45.475] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Looking up key:
+
+[02:45:45.475] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:45.475] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:45.476] [bmv2] [T] [thread 24265] [37.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:45.476] [bmv2] [T] [thread 24265] [37.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:45.476] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Pipeline 'ingress': end
+[02:45:45.476] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Egress port is 511
+[02:45:45.476] [bmv2] [D] [thread 24265] [37.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:46.489] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Processing packet received on port 1
+[02:45:46.490] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Parser 'parser': start
+[02:45:46.490] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:46.490] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Extracting header 'ethernet'
+[02:45:46.490] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:46.490] [bmv2] [T] [thread 24265] [38.0] [cxt 0] Bytes parsed: 14
+[02:45:46.491] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:46.491] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Extracting header 'arp'
+[02:45:46.491] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:46.491] [bmv2] [T] [thread 24265] [38.0] [cxt 0] Bytes parsed: 22
+[02:45:46.492] [bmv2] [T] [thread 24265] [38.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:46.492] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Parser 'parser': end
+[02:45:46.492] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Pipeline 'ingress': start
+[02:45:46.492] [bmv2] [T] [thread 24265] [38.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:46.492] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:46.493] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:46.493] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:46.493] [bmv2] [T] [thread 24265] [38.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:46.493] [bmv2] [T] [thread 24265] [38.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:46.493] [bmv2] [T] [thread 24265] [38.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:46.493] [bmv2] [T] [thread 24265] [38.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:46.493] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Looking up key:
+
+[02:45:46.493] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:46.493] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:46.493] [bmv2] [T] [thread 24265] [38.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:46.493] [bmv2] [T] [thread 24265] [38.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:46.494] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Pipeline 'ingress': end
+[02:45:46.494] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Egress port is 511
+[02:45:46.494] [bmv2] [D] [thread 24265] [38.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:47.487] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Processing packet received on port 1
+[02:45:47.487] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Parser 'parser': start
+[02:45:47.488] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:47.488] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Extracting header 'ethernet'
+[02:45:47.488] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:47.489] [bmv2] [T] [thread 24265] [39.0] [cxt 0] Bytes parsed: 14
+[02:45:47.489] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:47.489] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Extracting header 'arp'
+[02:45:47.490] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:47.490] [bmv2] [T] [thread 24265] [39.0] [cxt 0] Bytes parsed: 22
+[02:45:47.490] [bmv2] [T] [thread 24265] [39.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:47.490] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Parser 'parser': end
+[02:45:47.490] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Pipeline 'ingress': start
+[02:45:47.491] [bmv2] [T] [thread 24265] [39.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:47.491] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:47.491] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:47.491] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:47.491] [bmv2] [T] [thread 24265] [39.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:47.491] [bmv2] [T] [thread 24265] [39.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:47.492] [bmv2] [T] [thread 24265] [39.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:47.492] [bmv2] [T] [thread 24265] [39.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:47.492] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Looking up key:
+
+[02:45:47.492] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:47.493] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:47.493] [bmv2] [T] [thread 24265] [39.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:47.493] [bmv2] [T] [thread 24265] [39.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:47.493] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Pipeline 'ingress': end
+[02:45:47.493] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Egress port is 511
+[02:45:47.494] [bmv2] [D] [thread 24265] [39.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:48.487] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Processing packet received on port 1
+[02:45:48.487] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Parser 'parser': start
+[02:45:48.488] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:48.488] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Extracting header 'ethernet'
+[02:45:48.488] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:48.489] [bmv2] [T] [thread 24265] [40.0] [cxt 0] Bytes parsed: 14
+[02:45:48.489] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:48.489] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Extracting header 'arp'
+[02:45:48.489] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:48.490] [bmv2] [T] [thread 24265] [40.0] [cxt 0] Bytes parsed: 22
+[02:45:48.490] [bmv2] [T] [thread 24265] [40.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:48.490] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Parser 'parser': end
+[02:45:48.490] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Pipeline 'ingress': start
+[02:45:48.490] [bmv2] [T] [thread 24265] [40.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:48.490] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:48.491] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:48.491] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:48.491] [bmv2] [T] [thread 24265] [40.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:48.491] [bmv2] [T] [thread 24265] [40.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:48.492] [bmv2] [T] [thread 24265] [40.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:48.492] [bmv2] [T] [thread 24265] [40.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:48.492] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Looking up key:
+
+[02:45:48.492] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:48.493] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:48.493] [bmv2] [T] [thread 24265] [40.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:48.493] [bmv2] [T] [thread 24265] [40.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:48.493] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Pipeline 'ingress': end
+[02:45:48.493] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Egress port is 511
+[02:45:48.493] [bmv2] [D] [thread 24265] [40.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:49.505] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Processing packet received on port 1
+[02:45:49.505] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Parser 'parser': start
+[02:45:49.505] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:49.506] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Extracting header 'ethernet'
+[02:45:49.506] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:49.506] [bmv2] [T] [thread 24265] [41.0] [cxt 0] Bytes parsed: 14
+[02:45:49.507] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:49.507] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Extracting header 'arp'
+[02:45:49.507] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:49.507] [bmv2] [T] [thread 24265] [41.0] [cxt 0] Bytes parsed: 22
+[02:45:49.508] [bmv2] [T] [thread 24265] [41.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:49.508] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Parser 'parser': end
+[02:45:49.508] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Pipeline 'ingress': start
+[02:45:49.508] [bmv2] [T] [thread 24265] [41.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:49.508] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:49.509] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:49.509] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:49.509] [bmv2] [T] [thread 24265] [41.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:49.509] [bmv2] [T] [thread 24265] [41.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:49.510] [bmv2] [T] [thread 24265] [41.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:49.510] [bmv2] [T] [thread 24265] [41.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:49.510] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Looking up key:
+
+[02:45:49.510] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:49.510] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:49.510] [bmv2] [T] [thread 24265] [41.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:49.510] [bmv2] [T] [thread 24265] [41.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:49.510] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Pipeline 'ingress': end
+[02:45:49.511] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Egress port is 511
+[02:45:49.511] [bmv2] [D] [thread 24265] [41.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:50.503] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Processing packet received on port 1
+[02:45:50.503] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Parser 'parser': start
+[02:45:50.503] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:50.504] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Extracting header 'ethernet'
+[02:45:50.504] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:50.505] [bmv2] [T] [thread 24265] [42.0] [cxt 0] Bytes parsed: 14
+[02:45:50.505] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:50.505] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Extracting header 'arp'
+[02:45:50.505] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:50.505] [bmv2] [T] [thread 24265] [42.0] [cxt 0] Bytes parsed: 22
+[02:45:50.506] [bmv2] [T] [thread 24265] [42.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:50.506] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Parser 'parser': end
+[02:45:50.506] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Pipeline 'ingress': start
+[02:45:50.506] [bmv2] [T] [thread 24265] [42.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:50.506] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:50.507] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:50.507] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:50.507] [bmv2] [T] [thread 24265] [42.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:50.507] [bmv2] [T] [thread 24265] [42.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:50.508] [bmv2] [T] [thread 24265] [42.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:50.508] [bmv2] [T] [thread 24265] [42.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:50.508] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Looking up key:
+
+[02:45:50.508] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:50.508] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:50.509] [bmv2] [T] [thread 24265] [42.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:50.509] [bmv2] [T] [thread 24265] [42.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:50.509] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Pipeline 'ingress': end
+[02:45:50.509] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Egress port is 511
+[02:45:50.509] [bmv2] [D] [thread 24265] [42.0] [cxt 0] Dropping packet at the end of ingress
+[02:45:51.503] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Processing packet received on port 1
+[02:45:51.503] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Parser 'parser': start
+[02:45:51.503] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Parser 'parser' entering state 'start'
+[02:45:51.504] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Extracting header 'ethernet'
+[02:45:51.504] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Parser state 'start': key is 0806
+[02:45:51.504] [bmv2] [T] [thread 24265] [43.0] [cxt 0] Bytes parsed: 14
+[02:45:51.504] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Parser 'parser' entering state 'parse_arp'
+[02:45:51.505] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Extracting header 'arp'
+[02:45:51.505] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Parser state 'parse_arp' has no switch, going to default next state
+[02:45:51.505] [bmv2] [T] [thread 24265] [43.0] [cxt 0] Bytes parsed: 22
+[02:45:51.505] [bmv2] [T] [thread 24265] [43.0] [cxt 0] Skipping checksum 'cksum' verification because target field invalid
+[02:45:51.505] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Parser 'parser': end
+[02:45:51.506] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Pipeline 'ingress': start
+[02:45:51.506] [bmv2] [T] [thread 24265] [43.0] [cxt 0] Applying table 'cis553Ingress.tiHandleEthernet'
+[02:45:51.506] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Looking up key:
+* hdr.ethernet.dstAddr          : ffffffffffff
+* standard_metadata.ingress_port: 0001
+
+[02:45:51.506] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Table 'cis553Ingress.tiHandleEthernet': miss
+[02:45:51.506] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Action entry is cis553Ingress.aiNotForMe - 
+[02:45:51.507] [bmv2] [T] [thread 24265] [43.0] [cxt 0] Action cis553Ingress.aiNotForMe
+[02:45:51.507] [bmv2] [T] [thread 24265] [43.0] [cxt 0] basic.p4(118) Primitive metadata.forMe = 0
+[02:45:51.507] [bmv2] [T] [thread 24265] [43.0] [cxt 0] basic.p4(183) Condition "metadata.forMe == 0" (node_3) is true
+[02:45:51.507] [bmv2] [T] [thread 24265] [43.0] [cxt 0] Applying table 'tbl_aDrop'
+[02:45:51.508] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Looking up key:
+
+[02:45:51.508] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Table 'tbl_aDrop': miss
+[02:45:51.508] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Action entry is cis553Ingress.aDrop - 
+[02:45:51.508] [bmv2] [T] [thread 24265] [43.0] [cxt 0] Action cis553Ingress.aDrop
+[02:45:51.508] [bmv2] [T] [thread 24265] [43.0] [cxt 0] basic.p4(135) Primitive mark_to_drop()
+[02:45:51.509] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Pipeline 'ingress': end
+[02:45:51.509] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Egress port is 511
+[02:45:51.509] [bmv2] [D] [thread 24265] [43.0] [cxt 0] Dropping packet at the end of ingress
