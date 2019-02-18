@@ -4,18 +4,23 @@
 Q1: What did you do to test your implementation and what was each test intended to verify?
 
 // TODO
+Ping between all 3 routers
+hX -arp n to see which ARP entries have been successfully added
 
 Q2: What functionality is missing from the router implementation we asked you to complete?  We mentioned TTLs, but what else?
 
 // TODO
+Caching?
 
 Q3: Is it possible to arping from one host to another in this network?  Why or why not?
 
 // TODO
+No - there's a loop. When a switch receives a broadcast packet, it sends it out through all ports. -> constant broadcasting
 
 Q4: ARP is a very common protocol that maps from IP->MAC.  Mechanisms for mapping the other direction MAC->IP are much less common.  Why do you think that is?
 
 // TODO
+There are more MAC addresses than IP addresses
 
 Q5: Hybrid routers/switches exist in the real world.  For instance, imagine we have a 3-port L2/3 switch, where ports 1&2 are on the same Ethernet network and port 3 is an uplink to the Internet.  In this case, the switch might have 2 MAC addresses, XX:XX:XX:XX:XX:XX (facing ports 1&2) and YY:YY:YY:YY:YY:YY (facing port 3), and a single IP address Z.Z.Z.Z (facing port 3).
 
@@ -23,5 +28,24 @@ Ports 1&2 would function exactly like a learning switch, but if a frame arrives 
 
 Briefly sketch out pseudocode for the data plane operation of such a switch.  This doesn't need to be in P4 format.  C++/Python-like logic is fine.
 
-
 // TODO
+switch(hdr.ethernet.dstAddr, ingress_port) {
+	case "XX:XX:XX:XX:XX:XX", 1:
+		aiArpResponse("XX:XX:XX:XX:XX:XX")
+		break;
+
+	case "XX:XX:XX:XX:XX:XX", 2:
+		aiArpResponse("XX:XX:XX:XX:XX:XX")
+		break;
+
+	case "YY:YY:YY:YY:YY:YY", 3:
+		aiForwardUnknown();
+		break;
+
+	default:
+		aiForwardUnknown();
+}
+
+
+
+

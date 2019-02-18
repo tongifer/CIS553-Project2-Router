@@ -148,11 +148,6 @@ control cis553Ingress(inout headers_t hdr,
 
     action aiForward(macAddr_t mac_sa, macAddr_t mac_da, portId_t egress_port) {
         // TODO!
-        //metadata.dstAddr = mac_da;
-        //metadata.srcAddr = mac_sa;
-        //metadata.egress_port = egress_port;
-
-
         hdr.ethernet.srcAddr = mac_sa;
         hdr.ethernet.dstAddr = mac_da;
         hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
