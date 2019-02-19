@@ -3,24 +3,34 @@
 
 Q1: What did you do to test your implementation and what was each test intended to verify?
 
-// TODO
-Ping between all 3 routers
-hX -arp n to see which ARP entries have been successfully added
+We ran the following commands to test whether the router was correctly parsing and generating Ethernet and IPv4 headers:
+h1 ping 10.0.2.2
+h1 ping 10.0.3.3
+h2 ping 10.0.1.1
+h2 ping 10.0.3.3
+h3 ping 10.0.1.1
+h3 ping 10.0.2.2
+
+Then we ran the following commands to test whether ARP entries were successfully added for a given IP:
+h1 -arp n
+h2 -arp n
+h3 -arp n
+
 
 Q2: What functionality is missing from the router implementation we asked you to complete?  We mentioned TTLs, but what else?
 
-// TODO
-Caching?
+This router implementation does not have any route planning functionality. Though our implementation computes the checksum, it does not verify it.
+
 
 Q3: Is it possible to arping from one host to another in this network?  Why or why not?
 
-// TODO
-No - there's a loop. When a switch receives a broadcast packet, it sends it out through all ports. -> constant broadcasting
+Arping works only on Layer-2, and our implementation is on Layer-3.
+
 
 Q4: ARP is a very common protocol that maps from IP->MAC.  Mechanisms for mapping the other direction MAC->IP are much less common.  Why do you think that is?
 
-// TODO
-There are more MAC addresses than IP addresses
+There are more MAC addresses than IP addresses, so it's more likely that one IP address may map to multiple IP addresses than vice versa.
+
 
 Q5: Hybrid routers/switches exist in the real world.  For instance, imagine we have a 3-port L2/3 switch, where ports 1&2 are on the same Ethernet network and port 3 is an uplink to the Internet.  In this case, the switch might have 2 MAC addresses, XX:XX:XX:XX:XX:XX (facing ports 1&2) and YY:YY:YY:YY:YY:YY (facing port 3), and a single IP address Z.Z.Z.Z (facing port 3).
 
@@ -28,7 +38,6 @@ Ports 1&2 would function exactly like a learning switch, but if a frame arrives 
 
 Briefly sketch out pseudocode for the data plane operation of such a switch.  This doesn't need to be in P4 format.  C++/Python-like logic is fine.
 
-// TODO
 switch(hdr.ethernet.dstAddr, ingress_port) {
 	case "XX:XX:XX:XX:XX:XX", 1:
 		aiArpResponse("XX:XX:XX:XX:XX:XX")
@@ -45,7 +54,4 @@ switch(hdr.ethernet.dstAddr, ingress_port) {
 	default:
 		aiForwardUnknown();
 }
-
-
-
 
